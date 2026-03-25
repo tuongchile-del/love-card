@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bao Nhác Xinh Đẹp Tuyệt Vời 💖✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffe6f2, #fff0f8, #fce6ff);
+  overflow: hidden;
+}
+.card {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  background: white;
+  border-radius: 25px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
+  z-index: 2;
+}
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.3em;
+  color: #ff4fa3;
+  margin-bottom: 20px;
+}
+button {
+  margin: 10px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #ff6ec7, #ff9ad5);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+}
+button:hover {
+  transform: scale(1.08);
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+}
+.firework {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: explode 1s ease-out forwards;
+}
+@keyframes explode {
+  to {
+    transform: translate(var(--x), var(--y)) scale(3);
+    opacity: 0;
+  }
+}
+@media (max-width: 480px) {
+  .card {
+    padding: 30px 20px;
+  }
+  h1 {
+    font-size: 1.8em;
+  }
+  button {
+    padding: 10px 20px;
+    margin: 8px;
+  }
+  .popup-content {
+    width: 90%;
+    padding: 20px;
+  }
+}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>Bao Nhác Xinh Đẹp Tuyệt Vời 💖✨</h1>
+<button id="loveBtn">💌 Lời yêu thương</button>
+<button id="requestBtn">👑 Gửi yêu cầu</button>
+</div>
+<div class="popup" id="requestPopup">
+<div class="popup-content">
+<h3>👑 Hoàng tử sẵn sàng phục vụ</h3>
+<button class="optionBtn">🍳 Nấu ăn</button>
+<button class="optionBtn">🍓 Mua hoa quả</button>
+<button class="optionBtn">🎬 Xem phim</button>
+<br><br>
+<button onclick="closePopup()">Đóng</button>
+</div>
+</div>
+<audio id="bgMusic" src="assets/sounds/bg-music.mp3" loop></audio>
+<audio id="clickSound" src="assets/sounds/click.mp3"></audio>
+<audio id="fireworkSound" src="assets/sounds/firework.mp3"></audio>
+<audio id="sparkleSound" src="assets/sounds/sparkle.mp3"></audio>
+<script>
+const bgMusic = document.getElementById("bgMusic");
+const clickSound = document.getElementById("clickSound");
+const fireworkSound = document.getElementById("fireworkSound");
+const sparkleSound = document.getElementById("sparkleSound");
+document.body.addEventListener("click", () => {
+  bgMusic.play();
+}, { once: true });
+document.getElementById("loveBtn").addEventListener("click", function() {
+  clickSound.play();
+  sparkleSound.play();
+  alert("💖 Em là điều tuyệt vời nhất mà anh có được.");
+});
+document.getElementById("requestBtn").addEventListener("click", function() {
+  clickSound.play();
+  document.getElementById("requestPopup").style.display = "flex";
+});
+function closePopup() {
+  document.getElementById("requestPopup").style.display = "none";
+}
+document.querySelectorAll(".optionBtn").forEach(btn => {
+  btn.addEventListener("click", function() {
+    closePopup();
+    clickSound.play();
+    fireworkSound.play();
+    firework();
+  });
+});
+function firework() {
+  const card = document.querySelector(".card");
+  const rect = card.getBoundingClientRect();
+  const centerX = rect.left + rect.width / 2;
+  const centerY = rect.top + rect.height / 2;
+  for (let i = 0; i < 40; i++) {
+    const fw = document.createElement("div");
+    fw.classList.add("firework");
+    fw.style.left = centerX + "px";
+    fw.style.top = centerY + "px";
+    fw.style.background = `hsl(${Math.random() * 360}, 100%, 65%)`;
+    fw.style.setProperty('--x', (Math.random() * 400 - 200) + 'px');
+    fw.style.setProperty('--y', (Math.random() * 400 - 200) + 'px');
+    document.body.appendChild(fw);
+    setTimeout(() => fw.remove(), 1000);
+  }
+}
+</script>
+</body>
+</html>
