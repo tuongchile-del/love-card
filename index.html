@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bao Nhác Xinh Đẹp Tuyệt Vời 💖✨</title>
+<title>Bao Nhác Xinh Đẹp Tuyệt Vời 💖💖</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap');
 
   html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ffd6e8, #ffe6f0);
+    background: linear-gradient(135deg, #ffe6f2, #fff0f8, #fce6ff);
+    font-family: 'Poppins', system-ui, sans-serif;
     overflow-x: hidden;
   }
 
@@ -24,416 +24,467 @@
     position: relative;
   }
 
-  /* Tim rơi */
-  .heart-fall {
+  /* ===== TIM RƠI ===== */
+  #heartContainer {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
-    z-index: 0;
     overflow: hidden;
+    z-index: 1;
   }
 
-  .heart-fall span {
+  .heart {
     position: absolute;
-    top: -50px;
-    font-size: 1.2rem;
-    color: #ff6fa1;
-    animation-name: fall;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    color: #ff4fa3;
     opacity: 0.8;
+    animation: fall linear infinite;
+    filter: drop-shadow(0 0 2px #ff4fa3);
   }
 
   @keyframes fall {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
-    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    0% {
+      transform: translateY(-2rem) rotate(0deg);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(110vh) rotate(360deg);
+      opacity: 0;
+    }
   }
 
-  /* Card thiệp */
-  #card {
+  /* ===== CARD THIỆP ===== */
+  .card {
     position: relative;
-    background: rgba(255,255,255,0.85);
-    border-radius: 20px;
-    box-shadow: 0 0 15px 3px rgba(255,105,180,0.6);
-    border: 2px solid #ffb6c1;
-    width: 380px;
-    max-width: 92vw;
-    padding: 30px 25px 40px 25px;
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0 0 20px 5px rgba(255, 79, 163, 0.4);
+    border: 2px solid rgba(255, 79, 163, 0.6);
+    width: 90vw;
+    max-width: 400px;
+    padding: 2.5rem 2rem 3rem;
+    box-sizing: border-box;
     z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #title {
-    font-family: 'Pacifico', cursive;
-    font-size: 2.2rem;
-    color: #d6336c;
-    margin-bottom: 20px;
     text-align: center;
   }
 
-  #loveBox {
-    background: rgba(255,255,255,0.75);
-    border-radius: 15px;
-    padding: 20px 18px;
-    color: #a8326a;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    min-height: 160px;
-    max-height: 250px;
-    overflow-y: auto;
-    white-space: pre-line;
-    transition: opacity 0.3s ease;
-    box-shadow: inset 0 0 8px #ffb6c1;
-    width: 100%;
-    box-sizing: border-box;
+  h1 {
+    font-family: 'Pacifico', cursive;
+    color: #ff4fa3;
+    font-size: 2.5rem;
+    margin: 0 0 1.5rem 0;
   }
 
-  #loveBox::-webkit-scrollbar { width: 6px; }
-  #loveBox::-webkit-scrollbar-thumb { background: #ff8fb1; border-radius: 3px; }
-
-  #buttons {
-    margin-top: 25px;
-    width: 100%;
+  /* ===== LOVE TEXT BOX ===== */
+  #loveTextBox {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    padding: 1rem 1.25rem;
+    font-size: 1.1rem;
+    color: #d6336c;
+    min-height: 70px;
     display: flex;
-    justify-content: space-around;
-    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 0 10px 2px rgba(255, 105, 180, 0.3);
+    transition: opacity 0.5s ease;
+  }
+
+  /* ===== BUTTONS ===== */
+  .buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
     flex-wrap: wrap;
   }
 
   button {
-    cursor: pointer;
-    font-size: 1rem;
-    padding: 10px 18px;
-    border-radius: 12px;
+    background: linear-gradient(135deg, #ff6ec7, #ff9ad5);
     border: none;
-    font-family: 'Poppins', sans-serif;
-    transition: 0.25s ease;
-    box-shadow: 0 3px 8px rgba(255,105,180,0.4);
+    border-radius: 30px;
+    color: white;
+    font-size: 1.1rem;
+    padding: 0.6rem 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    user-select: none;
   }
 
-  button#loveBtn { background: #ff8fb1; color: white; }
-  button#loveBtn:hover { background: #ff5c8d; transform: scale(1.05); }
+  button:hover, button:focus {
+    outline: none;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 105, 180, 0.6);
+  }
 
-  button#requestBtn { background: #d6336c; color: white; }
-  button#requestBtn:hover { background: #a82a56; transform: scale(1.05); }
-
-  /* Popup */
+  /* ===== POPUP ===== */
   #popupOverlay {
     position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.35);
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 9998;
   }
 
-  #popup {
+  #popupContent {
     background: white;
     border-radius: 20px;
-    padding: 25px 30px;
-    width: 320px;
-    max-width: 90vw;
-    box-shadow: 0 0 20px 5px #ff6fa1aa;
-    transform: scale(0);
-    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
-  }
-
-  #popup.show { transform: scale(1); }
-
-  #popup h2 {
-    font-family: 'Pacifico', cursive;
-    color: #d6336c;
-    margin-bottom: 18px;
-    text-align: center;
-    font-size: 1.3rem;
-  }
-
-  #options {
+    padding: 1.5rem 2rem;
+    width: 90vw;
+    max-width: 320px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 1rem;
+    animation: popScale 0.3s ease forwards;
   }
 
-  .option-btn {
-    background: #ffb6c1;
-    border-radius: 12px;
+  @keyframes popScale {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  #popupContent h2 {
+    margin: 0;
+    color: #ff4fa3;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+  }
+
+  .optionBtn {
+    background: linear-gradient(135deg, #ff6ec7, #ff9ad5);
     border: none;
-    padding: 12px 15px;
-    font-size: 1.05rem;
-    color: #7a1f3d;
+    border-radius: 25px;
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
     cursor: pointer;
+    box-shadow: 0 3px 6px rgba(255, 105, 180, 0.5);
     display: flex;
     align-items: center;
-    gap: 10px;
-    box-shadow: 0 3px 8px rgba(255,105,180,0.4);
-    transition: 0.25s ease;
+    gap: 0.5rem;
+    justify-content: center;
+    user-select: none;
+    transition: transform 0.2s ease;
   }
 
-  .option-btn:hover { background: #ff8fb1; transform: scale(1.03); }
-
-  /* Pháo hoa canvas */
-  #fireworksCanvas {
-    position: fixed;
-    top: 50%; left: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    width: 400px; height: 400px;
+  .optionBtn:hover, .optionBtn:focus {
+    outline: none;
+    transform: scale(1.05);
   }
 
-  /* Nút nhạc */
+  /* ===== MUSIC TOGGLE ===== */
   #musicToggle {
     position: fixed;
-    top: 15px; right: 15px;
-    background: #ff8fb1;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
     border: none;
-    border-radius: 50%;
-    width: 44px; height: 44px;
     cursor: pointer;
-    box-shadow: 0 3px 8px rgba(255,105,180,0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: 10000;
-    font-size: 1.2rem;
-    color: white;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    box-shadow: none;
   }
 
-  @media (max-width: 420px) {
-    #card { width: 92vw; padding: 25px 18px 35px 18px; }
-    #title { font-size: 1.7rem; }
-    #fireworksCanvas { width: 300px; height: 300px; }
+  #musicToggle svg {
+    fill: #ff4fa3;
+    width: 100%;
+    height: 100%;
+    transition: fill 0.3s ease;
+  }
+
+  #musicToggle:hover svg {
+    fill: #ff9ad5;
+  }
+
+  /* ===== FIREWORK CANVAS ===== */
+  #fireworkCanvas {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 480px) {
+    .card {
+      width: 95vw;
+      padding: 2rem 1.5rem 2.5rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    button {
+      font-size: 1rem;
+      padding: 0.5rem 1.2rem;
+    }
+    #loveTextBox {
+      font-size: 1rem;
+      min-height: 60px;
+    }
   }
 </style>
 </head>
 
 <body>
 
-<div class="heart-fall" aria-hidden="true"></div>
+  <!-- TIM RƠI -->
+  <div id="heartContainer" aria-hidden="true"></div>
 
-<div id="card">
-  <h1 id="title">Bao Nhác Xinh Đẹp Tuyệt Vời 💖✨</h1>
-  <div id="loveBox"></div>
-  <div id="buttons">
-    <button id="loveBtn" type="button">💌 Lời yêu thương</button>
-    <button id="requestBtn" type="button">👑 Gửi yêu cầu</button>
-  </div>
-</div>
-
-<div id="popupOverlay">
-  <div id="popup">
-    <h2>👑 Hoàng tử sẵn sàng phục vụ</h2>
-    <div id="options">
-      <button class="option-btn" type="button">🍳 Nấu ăn cho em</button>
-      <button class="option-btn" type="button">🍓 Mua hoa quả cho em</button>
-      <button class="option-btn" type="button">🎬 Cho em đi xem phim</button>
-      <button class="option-btn" type="button">🛍 Dẫn em đi shopping</button>
-      <button class="option-btn" type="button">🌸 Mua hoa tặng em</button>
-      <button class="option-btn" type="button">🧸 Ôm em thật chặt</button>
+  <!-- CARD THIỆP -->
+  <div class="card" role="main">
+    <h1>Bao Nhác Xinh Đẹp Tuyệt Vời 💖✨</h1>
+    <div id="loveTextBox" aria-live="polite" aria-atomic="true"></div>
+    <div class="buttons">
+      <button id="loveBtn" type="button">💌 Lời yêu thương</button>
+      <button id="requestBtn" type="button">👑 Gửi yêu cầu</button>
     </div>
   </div>
-</div>
 
-<canvas id="fireworksCanvas" width="400" height="400" aria-hidden="true"></canvas>
+  <!-- POPUP YÊU CẦU -->
+  <div id="popupOverlay" role="dialog" aria-modal="true" tabindex="-1">
+    <div id="popupContent">
+      <h2>Chọn yêu cầu dấu thương 💕</h2>
+      <button class="optionBtn" type="button">🍳 Nấu ăn cho em</button>
+      <button class="optionBtn" type="button">🍓 Mua hoa quả</button>
+      <button class="optionBtn" type="button">🎬 Xem phim</button>
+      <button class="optionBtn" type="button">🛍 Đi shopping</button>
+      <button class="optionBtn" type="button">🌸 Mua hoa tặng em</button>
+    </div>
+  </div>
 
-<button id="musicToggle" title="Bật/tắt nhạc nền">🎵</button>
+  <!-- NÚT BẬT/TẮT NHẠC -->
+  <button id="musicToggle" aria-label="Bật tắt nhạc nền" title="Bật/tắt nhạc nền" type="button">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+      <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03z"/>
+      <path d="M19.5 12c0 3.04-1.64 5.64-4 7.03v-2.06c1.54-1.07 2.5-2.87 2.5-4.97s-.96-3.9-2.5-4.97V4.97c2.36 1.39 4 3.99 4 7.03z"/>
+    </svg>
+  </button>
 
-<audio id="bgMusic" loop preload="auto" src="assets/sounds/bg-music.mp3"></audio>
+  <!-- FIREWORK CANVAS -->
+  <canvas id="fireworkCanvas" aria-hidden="true"></canvas>
+
+  <!-- AUDIO FILES -->
+  <audio id="bgMusic" src="assets/sounds/bg-music.mp3" loop preload="auto"></audio>
+  <audio id="clickSound" src="assets/sounds/click.mp3" preload="auto"></audio>
+  <audio id="fireworkSound" src="assets/sounds/firework.mp3" preload="auto"></audio>
+  <audio id="sparkleSound" src="assets/sounds/sparkle.mp3" preload="auto"></audio>
 
 <script>
 
-/* ===== TIM RƠI ===== */
-const heartContainer = document.querySelector('.heart-fall');
-for(let i = 0; i < 35; i++){
-  const s = document.createElement('span');
-  s.textContent = '❤️';
-  s.style.left = (Math.random()*100) + 'vw';
-  s.style.fontSize = (12 + Math.random()*18) + 'px';
-  s.style.animationDuration = (6 + Math.random()*6) + 's';
-  s.style.animationDelay = (Math.random()*6) + 's';
-  heartContainer.appendChild(s);
-}
+  // ===== 5 CÂU SẾN SÚA CỦA TÁC GIẢ LÊ CHÍ TƯỞNG =====
+  const loveTexts = [
+    "Đừng bao giờ hỏi a chán chưa, vì tình yêu của anh luôn dành cho em chứa chan 💖",
+    "Bước vào tiệm giày rồi bước ra, không có đôi nào đẹp bằng đôi ta 👟💕",
+    "Nghe nói đường vào tim anh lắm lỗi, em thấy hơi rắc rối nên thôi khỏi vào 😏💗",
+    "Tình yêu anh giành cho em giống như giá xăng, giảm thì ít mà tăng thì nhiều ⛽💖",
+    "Tự nhiên anh thấy lờ đờ, tưởng đâu say nắng ai ngờ say em 😵💖"
+  ];
 
-/* ===== LỜI YÊU THƯƠNG ===== */
-const loveTexts = [
+  // ===== LẤY ELEMENTS =====
+  const loveTextBox = document.getElementById('loveTextBox');
+  const loveBtn = document.getElementById('loveBtn');
+  const requestBtn = document.getElementById('requestBtn');
+  const popupOverlay = document.getElementById('popupOverlay');
+  const optionButtons = popupOverlay.querySelectorAll('.optionBtn');
+  const musicToggle = document.getElementById('musicToggle');
+  const bgMusic = document.getElementById('bgMusic');
+  const clickSound = document.getElementById('clickSound');
+  const fireworkSound = document.getElementById('fireworkSound');
+  const sparkleSound = document.getElementById('sparkleSound');
+  const fireworkCanvas = document.getElementById('fireworkCanvas');
+  const ctx = fireworkCanvas.getContext('2d');
+  const card = document.querySelector('.card');
+  const heartContainer = document.getElementById('heartContainer');
 
-`💖 Em à… nếu cuộc đời anh là một bản giao hưởng dài bất tận, thì em chính là nốt nhạc ngọt ngào nhất vang lên giữa trái tim anh. Mỗi khoảnh khắc có em bên cạnh, thế giới của anh như được nhuộm một lớp ánh sáng dịu dàng, mọi muộn phiền đều tan biến chỉ vì một nụ cười của em.
+  let lastLoveIndex = -1;
 
-Anh không biết mình đã làm điều gì tốt đẹp trong kiếp trước để kiếp này được gặp một người tuyệt vời như em. Nhưng anh biết chắc một điều: từ giây phút đầu tiên nhìn thấy em, trái tim anh đã quyết định rằng nó chỉ đập vì em mà thôi.
-
-Em không chỉ là người anh yêu, mà còn là cả bầu trời, là ánh trăng, là vì sao sáng nhất trong vũ trụ của riêng anh. ✨`,
-
-`🌸 Người ta nói rằng trên đời này có hàng tỷ người, nhưng anh chỉ cần đúng một người — đó là em. Em giống như cơn gió mùa xuân nhẹ nhàng thổi qua, mang theo hương thơm của ngàn đóa hoa, khiến trái tim anh rung động theo cách mà không ai khác có thể làm được.
-
-Từ ngày có em, anh mới hiểu thế nào là hạnh phúc thật sự — không phải là những điều to lớn xa xôi, mà đơn giản chỉ là được nghe em cười, được nắm tay em đi dạo, được nhìn em ngủ say và thầm nghĩ rằng mình là người may mắn nhất thế gian.
-
-Nếu có kiếp sau, anh vẫn muốn gặp lại em, yêu lại em, và nói với em rằng: Em mãi là điều đẹp đẽ nhất cuộc đời anh. 💕`,
-
-`💫 Em biết không, mỗi buổi sáng thức dậy, điều đầu tiên anh nghĩ đến chính là em. Không phải vì anh cố gắng nghĩ, mà vì em đã trở thành một phần không thể thiếu trong từng nhịp thở của anh rồi.
-
-Em giống như ánh nắng ban mai chiếu rọi vào căn phòng tối, giống như giọt sương mai long lanh trên cánh hoa hồng, giống như bản tình ca ngọt ngào nhất mà trái tim anh từng được nghe.
-
-Anh yêu cách em cười — nụ cười ấy có thể xua tan mọi bóng tối trong lòng anh. Anh yêu cách em dỗi — đáng yêu đến mức anh chỉ muốn ôm em thật chặt và không bao giờ buông ra.
-
-Dù thế giới này có thay đổi thế nào, thì trong trái tim anh, em mãi là công chúa duy nhất, là người mà anh nguyện yêu thương và bảo vệ đến hơi thở cuối cùng. 👑`,
-
-`🌷 Nếu ai đó hỏi anh rằng tình yêu là gì, anh sẽ không cần suy nghĩ mà trả lời ngay: tình yêu chính là em. Là cách em nghiêng đầu khi suy nghĩ, là ánh mắt em lấp lánh khi vui, là giọng nói em ngọt ngào khi gọi tên anh.
-
-Từ khi có em, cuộc sống của anh không còn là những ngày đen trắng nhàm chán nữa — nó trở thành một bức tranh rực rỡ sắc màu, nơi mỗi khoảnh khắc đều đáng trân trọng.
-
-Em là lý do anh muốn trở thành phiên bản tốt hơn mỗi ngày, là động lực để anh cố gắng, là niềm vui khiến anh mỉm cười ngay cả trong những lúc khó khăn nhất.
-
-Anh yêu em — không chỉ hôm nay, không chỉ ngày mai, mà là mãi mãi, cho đến khi những vì sao cuối cùng trên bầu trời ngừng lấp lánh. 💖`,
-
-`👑 Công chúa nhỏ của anh ơi, em có biết rằng mỗi lần em xuất hiện, cả thế giới xung quanh anh như dừng lại không? Thời gian ngừng trôi, âm thanh lặng đi, chỉ còn lại hình bóng em rạng rỡ giữa muôn vàn ánh sáng.
-
-Anh đã gặp rất nhiều người trong cuộc đời này, nhưng chưa ai khiến trái tim anh rung động mãnh liệt như em. Em không chỉ đẹp ở ngoại hình, mà còn đẹp ở tâm hồn — một tâm hồn dịu dàng, ấm áp và tràn đầy yêu thương.
-
-Được ở bên em là điều hạnh phúc nhất mà anh từng được trải nghiệm. Và anh hứa, dù cuộc sống có bao nhiêu sóng gió, anh sẽ luôn là bến bờ bình yên nhất cho em quay về. 🌸`,
-
-`💕 Em à, anh muốn nói với em rằng: cảm ơn em đã đến bên cuộc đời anh. Cảm ơn em vì đã biến những ngày bình thường trở nên phi thường, biến những khoảnh khắc tầm thường trở nên đáng nhớ.
-
-Trước khi gặp em, anh nghĩ rằng tình yêu chỉ tồn tại trong phim ảnh và tiểu thuyết. Nhưng em đã chứng minh cho anh thấy rằng tình yêu đích thực có thật — và nó đang ở ngay đây, trong từng ánh mắt em nhìn anh, trong từng cái nắm tay ấm áp, trong từng lời nói ngọt ngào mà em dành cho anh.
-
-Nếu được ước một điều, anh sẽ ước rằng thời gian trôi chậm lại, để anh được ở bên em lâu hơn, yêu em nhiều hơn, và trân trọng em từng giây từng phút. 💫`,
-
-`✨ Nếu anh là một họa sĩ, anh sẽ vẽ em bằng tất cả những gam màu đẹp nhất trên đời. Nếu anh là một nhà thơ, anh sẽ viết về em bằng những vần thơ lãng mạn nhất. Nếu anh là một nhạc sĩ, anh sẽ sáng tác cho em bản tình ca ngọt ngào nhất mà thế giới từng được nghe.
-
-Nhưng anh chỉ là anh — một chàng trai bình thường, yêu em bằng cả trái tim chân thành nhất. Anh không có gì nhiều để tặng em ngoài tình yêu này, nhưng anh hứa rằng tình yêu ấy sẽ không bao giờ phai nhạt.
-
-Nó sẽ lớn lên mỗi ngày, mạnh mẽ hơn mỗi ngày, và luôn luôn thuộc về em — chỉ mình em thôi. 💖`,
-
-`🌙 Đêm nay nhìn lên bầu trời đầy sao, anh lại nghĩ về em. Mỗi vì sao lấp lánh trên kia đều nhắc anh nhớ đến ánh mắt em — long lanh, trong veo và đẹp đến nao lòng.
-
-Em giống như mặt trăng vậy — dù ở bất kỳ đâu, dù trong bất kỳ hoàn cảnh nào, em vẫn luôn tỏa sáng theo cách riêng của mình. Và anh, giống như đại dương mênh mông kia, sẽ mãi chịu ảnh hưởng bởi sức hút của em, mãi hướng về phía em, mãi yêu em không ngừng nghỉ.
-
-Hoàng tử Lê Chí Tưởng này sinh ra là để yêu thương, chiều chuộng và bảo vệ mỗi mình em — Bao Nhác xinh đẹp tuyệt vời nhất vũ trụ này. 👑💖`
-
-];
-
-let lastLoveIndex = -1;
-const loveBox = document.getElementById('loveBox');
-const loveBtn = document.getElementById('loveBtn');
-
-function showLoveText(){
-  let idx;
-  do { idx = Math.floor(Math.random() * loveTexts.length); }
-  while(idx === lastLoveIndex);
-  lastLoveIndex = idx;
-
-  loveBox.style.opacity = 0;
-  setTimeout(() => {
-    loveBox.textContent = loveTexts[idx];
-    loveBox.style.opacity = 1;
-    loveBox.scrollTop = 0;
-  }, 300);
-}
-
-loveBtn.addEventListener('click', showLoveText);
-
-/* ===== POPUP YÊU CẦU ===== */
-const popupOverlay = document.getElementById('popupOverlay');
-const popup = document.getElementById('popup');
-const requestBtn = document.getElementById('requestBtn');
-
-requestBtn.addEventListener('click', () => {
-  popupOverlay.style.display = 'flex';
-  setTimeout(() => popup.classList.add('show'), 10);
-});
-
-popupOverlay.addEventListener('click', (e) => {
-  if(e.target === popupOverlay) closePopup();
-});
-
-function closePopup(){
-  popup.classList.remove('show');
-  setTimeout(() => { popupOverlay.style.display = 'none'; }, 300);
-}
-
-/* ===== PHÁO HOA CANVAS ===== */
-const canvas = document.getElementById('fireworksCanvas');
-const ctx = canvas.getContext('2d');
-let particles = [];
-
-class Particle {
-  constructor(x, y, color){
-    this.x = x; this.y = y;
-    this.color = color;
-    this.radius = Math.random()*2.5 + 1;
-    this.speedX = (Math.random()-0.5)*8;
-    this.speedY = (Math.random()-0.5)*8;
-    this.alpha = 1;
-    this.decay = 0.012 + Math.random()*0.015;
+  // ===== RANDOM KHÔNG TRÙNG LIÊN TIẾP =====
+  function getRandomLoveIndex() {
+    let idx;
+    do {
+      idx = Math.floor(Math.random() * loveTexts.length);
+    } while (idx === lastLoveIndex);
+    lastLoveIndex = idx;
+    return idx;
   }
-  update(){
-    this.x += this.speedX;
-    this.y += this.speedY;
-    this.alpha -= this.decay;
-    if(this.alpha < 0) this.alpha = 0;
-  }
-  draw(ctx){
-    ctx.save();
-    ctx.globalAlpha = this.alpha;
-    ctx.fillStyle = this.color;
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
-    ctx.fill();
-    ctx.restore();
-  }
-}
 
-function createFireworks(){
-  const cx = canvas.width/2, cy = canvas.height/2;
-  const colors = ['#ff5c8d','#ff8fb1','#d6336c','#ffb6c1','#ff69b4','#ff1493','#ffd700','#ff6347'];
-  for(let i=0;i<100;i++){
-    particles.push(new Particle(cx, cy, colors[Math.floor(Math.random()*colors.length)]));
+  // ===== HIỆU ỨNG FADE =====
+  function fadeOutIn(element, newText) {
+    element.style.opacity = 0;
+    setTimeout(() => {
+      element.textContent = newText;
+      element.style.opacity = 1;
+    }, 400);
   }
-}
 
-function animateFireworks(){
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles.forEach((p, i) => {
-    p.update();
-    if(p.alpha <= 0) particles.splice(i, 1);
-    else p.draw(ctx);
+  // ===== KHỞI TẠO CÂU ĐẦU TIÊN =====
+  window.addEventListener('DOMContentLoaded', () => {
+    const idx = getRandomLoveIndex();
+    loveTextBox.textContent = loveTexts[idx];
   });
-  if(particles.length > 0) requestAnimationFrame(animateFireworks);
-}
 
-/* ===== OPTION CLICK ===== */
-document.querySelectorAll('.option-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    closePopup();
-    createFireworks();
-    animateFireworks();
+  // ===== BUTTON LỜI YÊU THƯƠNG =====
+  loveBtn.addEventListener('click', () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+    const idx = getRandomLoveIndex();
+    fadeOutIn(loveTextBox, loveTexts[idx]);
   });
-});
 
-/* ===== NHẠC NỀN ===== */
-const bgMusic = document.getElementById('bgMusic');
-const musicToggle = document.getElementById('musicToggle');
-let musicPlaying = false;
+  // ===== POPUP MỞ/ĐÓNG =====
+  requestBtn.addEventListener('click', () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+    popupOverlay.style.display = 'flex';
+    popupOverlay.focus();
+  });
 
-musicToggle.addEventListener('click', () => {
-  if(musicPlaying){
-    bgMusic.pause();
-    musicPlaying = false;
-    musicToggle.textContent = '🎵';
-    musicToggle.title = 'Bật nhạc nền';
-  } else {
-    bgMusic.play();
-    musicPlaying = true;
-    musicToggle.textContent = '🔇';
-    musicToggle.title = 'Tắt nhạc nền';
+  popupOverlay.addEventListener('click', (e) => {
+    if (e.target === popupOverlay) {
+      closePopup();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && popupOverlay.style.display === 'flex') {
+      closePopup();
+    }
+  });
+
+  function closePopup() {
+    popupOverlay.style.display = 'none';
   }
-});
 
-/* Hiện lời yêu thương đầu tiên */
-showLoveText();
+  // ===== HỆ THỐNG PHÁO HOA =====
+  class Particle {
+    constructor(x, y, color) {
+      this.x = x;
+      this.y = y;
+      this.color = color;
+      this.radius = Math.random() * 2 + 1;
+      this.speed = Math.random() * 4 + 2;
+      this.angle = Math.random() * 2 * Math.PI;
+      this.vx = Math.cos(this.angle) * this.speed;
+      this.vy = Math.sin(this.angle) * this.speed;
+      this.alpha = 1;
+      this.decay = Math.random() * 0.015 + 0.007;
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      this.alpha -= this.decay;
+      if (this.alpha < 0) this.alpha = 0;
+    }
+    draw(ctx) {
+      ctx.save();
+      ctx.globalAlpha = this.alpha;
+      ctx.fillStyle = this.color;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  let particles = [];
+  let animationFrameId = null;
+
+  function createFirework(x, y) {
+    const colors = ['#ff4fa3', '#ff6ec7', '#ff9ad5', '#d6336c', '#ffb6c1', '#ff1493'];
+    particles = [];
+    for (let i = 0; i < 80; i++) {
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      particles.push(new Particle(x, y, color));
+    }
+    if (!animationFrameId) {
+      animateFirework();
+    }
+  }
+
+  function animateFirework() {
+    ctx.clearRect(0, 0, fireworkCanvas.width, fireworkCanvas.height);
+    particles.forEach((p, i) => {
+      p.update();
+      p.draw(ctx);
+      if (p.alpha <= 0) {
+        particles.splice(i, 1);
+      }
+    });
+    if (particles.length > 0) {
+      animationFrameId = requestAnimationFrame(animateFirework);
+    } else {
+      animationFrameId = null;
+    }
+  }
+
+  // ===== RESIZE CANVAS =====
+  function resizeCanvas() {
+    fireworkCanvas.width = window.innerWidth;
+    fireworkCanvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  // ===== KHI BẤM YÊU CẦU → PHÁO HOA + ÂM THANH =====
+  optionButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      clickSound.currentTime = 0;
+      clickSound.play();
+      closePopup();
+
+      const rect = card.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+      createFirework(x, y);
+
+      fireworkSound.currentTime = 0;
+      sparkleSound.currentTime = 0;
+      fireworkSound.play();
+      sparkleSound.play();
+    });
+  });
+
+  // ===== BẬT/TẮT NHẠC =====
+  let musicPlaying = false;
+  musicToggle.addEventListener('click', () => {
+    if (musicPlaying) {
+      bgMusic.pause();
+      musicPlaying = false;
+      musicToggle.querySelector('svg').style.fill = '#ff4fa3';
+    } else {
+      bgMusic.play();
+      musicPlaying = true;
+      musicToggle.querySelector('svg').style.fill = '#ff9ad5';
+    }
+  });
+
+  // ===== TIM RƠI LIÊN TỤC =====
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.textContent = '💖';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (Math.random() * 1 + 1.2) + 'rem';
+    heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+    heartContainer.appendChild(heart);
+    setTimeout(() => {
+      heart.remove();
+    }, 10000);
+  }
+  setInterval(createHeart, 400);
 
 </script>
 </body>
